@@ -115,7 +115,7 @@ public class Main {
             return true;
         if(orient == 0) {
             for (int j = y; j < y + size; j++) {
-                if (!((matrix[x][j]).equals("–"))) {
+                if (!((matrix[x][j]).equals("\u2013"))) {
                     if (flag_Extra) {
                         System.out.println("Battleship overlaps another battleship, try again!");
                     }
@@ -124,7 +124,7 @@ public class Main {
             }
         }else{
             for (int i = x; i < x + size; i++) {
-                if (!((matrix[i][y]).equals("–"))) {
+                if (!((matrix[i][y]).equals("\u2013"))) {
                     if (flag_Extra) {
                         System.out.println("Battleship overlaps another battleship, try again!");
                     }
@@ -267,28 +267,28 @@ public class Main {
         for (int i = 1; (y - i) > 0; i++) {//checks for the left
             if (matrix[x][y - i].equals("#"))
                 return;
-            if (matrix[x][y - i].equals("–") || matrix[x][y - i].equals(symbol))
+            if (matrix[x][y - i].equals("\u2013") || matrix[x][y - i].equals(symbol))
                 break;
             counter_Hits++;
         }
         for (int j = 1; (y + j) <= m ; j++) {//checks for the right
             if (matrix[x][y + j].equals("#"))
                 return;
-            if (matrix[x][y + j].equals("–") || matrix[x][y + j].equals(symbol))
+            if (matrix[x][y + j].equals("\u2013") || matrix[x][y + j].equals(symbol))
                 break;
             counter_Hits++;
         }
         for (int k = 1; (x - k) > 0; k++) {//checks up
             if (matrix[x - k][y].equals("#"))
                 return;
-            if (matrix[x - k][y].equals("–") || matrix[x - k][y].equals(symbol))
+            if (matrix[x - k][y].equals("\u2013") || matrix[x - k][y].equals(symbol))
                 break;
             counter_Hits++;
         }
         for (int l = 1; (x + l) <= n; l++) {//checks down
             if (matrix[x + l][y].equals("#"))
                 return;
-            if (matrix[x + l][y].equals("–") || matrix[x + l][y].equals(symbol))
+            if (matrix[x + l][y].equals("\u2013") || matrix[x + l][y].equals(symbol))
                 break;
             counter_Hits++;
         }
@@ -386,7 +386,7 @@ public class Main {
         String[][] matrix = new String[n + 1][m + 1];
         for (int i = 1; i < n + 1; i++) {
             for (int j = 1; j < m + 1; j++)
-                matrix[i][j] = "–";
+                matrix[i][j] = "\u2013";
         }
         int num_Spaces = sum_Digits(n);
         matrix[0][0] = "";
@@ -543,7 +543,7 @@ public class Main {
 
             //user attacks
 
-            if (matrix_Computer[x][y].equals("–")) {//Result if the user misses
+            if (matrix_Computer[x][y].equals("\u2013")) {//Result if the user misses
                 System.out.println("That is a miss!");
                 matrix_Computer[x][y] = "X";
                 matrix_Gussing_User[x][y] = "X";
