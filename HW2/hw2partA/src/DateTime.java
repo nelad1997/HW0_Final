@@ -8,6 +8,7 @@ public class DateTime extends Date {
         super(day, month, year);
         this.hour = hour;
         this.minute = minute;
+
     }
 
     public void setHour(int hour) {
@@ -39,6 +40,6 @@ public class DateTime extends Date {
 
     @Override
     public int hashCode() {
-        return Objects.hash(hour, minute);
+        return ;
     }
 }

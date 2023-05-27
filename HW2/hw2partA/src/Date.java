@@ -4,7 +4,6 @@ public class Date {
     protected int day;
     protected int month;
     protected int year;
-
     public Date(int day, int month, int year) {
         setDay(day);
         setMonth(month);
@@ -27,7 +26,7 @@ public class Date {
     }
 
     public void setYear(int year) {
-        if (year <= 9999 && year >= -9999)
+        if (year <= 3999 && year >= -3999)
             this.year = year;
         else
             this.year = 0;
@@ -39,17 +38,18 @@ public class Date {
             return false;
         Date d = (Date) other;
         return day == d.day && month == d.month && year == d.year;
-
     }
 
     @Override
     public String toString() {
-        return day+"/"+month+"/"+"year";
+        return day+"/"+month+"/"+year;
     }
 
     @Override
     public int hashCode() {
-        return ;
+        if(year>=0)
+            return  372*year+31*month+day;
+        return -(372*year+31*month+day);
     }
 }
 
