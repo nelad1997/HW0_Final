@@ -1,21 +1,28 @@
 public class Constant extends Function {
 
     private final double constant;
+
     public Constant(double constant) {
-        this.constant=constant;
+        this.constant = constant;
     }
+
     @Override
-    public double valueAt(double x){
+    public double valueAt(double x) {
         return constant;
     }
 
     @Override
     public String toString() {
-        return "("+constant+")";
+        return "(" + constant + ")";
     }
 
     @Override
-    public Constant derivative(){
-       return new Constant(0);
+    public Constant derivative() {
+        return new Constant(0);
+    }
+
+    @Override
+    public Polynomial taylorPolynomial(int n) {
+    return new Polynomial(constant);
     }
 }

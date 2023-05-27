@@ -40,6 +40,6 @@ public class DateTime extends Date {
 
     @Override
     public int hashCode() {
-        return ;
+        return 1;
     }
 }
