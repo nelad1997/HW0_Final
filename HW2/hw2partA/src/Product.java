@@ -8,7 +8,7 @@ public class Product extends Function{
     @Override
     public double valueAt(double a) {
         int len =functions.length;
-        int product=0;
+        double product=1;
         for(int i=0;i<len;i++)
             product*=functions[i].valueAt(a);
         return product;

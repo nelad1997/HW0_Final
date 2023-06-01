@@ -4,7 +4,7 @@ public class Main {
     private static Random rnd;
 
     public static void main(String[] args) {
-        testPartA();
+        //testPartA();
         testPartB();
     }
 
@@ -59,7 +59,8 @@ public class Main {
     private static void testPartB() {
         System.out.println("-------------------- Tests for part B --------------------");
         rnd = new Random(42);
-
+        Function multip=new MultiProduct(new Constant(5),new Polynomial(0,0,1),new Polynomial(0,0,1,1));
+        Function d=multip.derivative();
 
         Function const1 = new Constant(12345);
         testFunction(const1, "const1", 10);
@@ -160,7 +161,7 @@ public class Main {
 
         testRootFinding();
     }
-
+    Function multi=new MultiProduct(new Constant(3));
     /**
      * Tests the methods of a given function.
      */

@@ -1,19 +1,13 @@
-public class Constant extends Function {
+public class Constant extends Polynomial {
 
-    private final double constant;
 
-    public Constant(double constant) {
-        this.constant = constant;
+    public Constant(double... coefficients) {
+        super(coefficients);
     }
 
     @Override
     public double valueAt(double x) {
-        return constant;
-    }
-
-    @Override
-    public String toString() {
-        return "(" + constant + ")";
+        return coefficients[0];
     }
 
     @Override
@@ -23,6 +17,6 @@ public class Constant extends Function {
 
     @Override
     public Polynomial taylorPolynomial(int n) {
-    return new Polynomial(constant);
+    return new Polynomial(coefficients[0]);
     }
 }

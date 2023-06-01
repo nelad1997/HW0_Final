@@ -1,6 +1,6 @@
 public abstract class Function {
     protected final double EPSILON_DEFAULT =1e-5;
-    protected final double ZERO=0;
+
     public  abstract double valueAt(double a);
     @Override
     public abstract String toString();
@@ -35,21 +35,19 @@ public abstract class Function {
     public  Polynomial taylorPolynomial(int n){
         double[] taylor_Coefficients=new double[n+1];
         Function der_Function=derivative();
-        taylor_Coefficients[0]=valueAt(ZERO);
-        taylor_Coefficients[1]=der_Function.valueAt(ZERO);
-        for(int k=2;k<n+1;k++){
-            der_Function=der_Function.derivative();
-            double derAtPoint=der_Function.valueAt(ZERO);
+        taylor_Coefficients[0]=valueAt(0);
+        for(int k=1;k<n+1;k++){
+            double derAtPoint=der_Function.valueAt(0);
             taylor_Coefficients[k]=derAtPoint/factorial(k);
+            der_Function=der_Function.derivative();
         }
         return new Polynomial(taylor_Coefficients);
     }
     public int factorial(int n){
-        int x;
-        for(x=1;x<=n;x++)
-            x*=x;
+        int x=1;
+        for(int i=1;i<=n;i++)
+            x*=i;
         return x;
     }
 }
-
 
