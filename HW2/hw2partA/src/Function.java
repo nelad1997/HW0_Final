@@ -43,8 +43,8 @@ public abstract class Function {
         }
         return new Polynomial(taylor_Coefficients);
     }
-    public int factorial(int n){
-        int x=1;
+    public double factorial(int n){
+        double x=1;
         for(int i=1;i<=n;i++)
             x*=i;
         return x;

@@ -4,7 +4,7 @@ public class Date {
     protected int day;
     protected int month;
     protected int year;
-    public Date(int day, int month, int year) {
+    public Date(int year, int month, int day) {
         setDay(day);
         setMonth(month);
         setYear(year);

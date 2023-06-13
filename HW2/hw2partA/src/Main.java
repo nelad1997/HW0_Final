@@ -161,7 +161,6 @@ public class Main {
 
         testRootFinding();
     }
-    Function multi=new MultiProduct(new Constant(3));
     /**
      * Tests the methods of a given function.
      */

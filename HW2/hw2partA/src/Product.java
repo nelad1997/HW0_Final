@@ -1,38 +1,46 @@
 public class Product extends Function{
-    protected Function[]functions;
+    protected Function function1;
+    protected Function function2;
 
-    public Product(Function ...functions) {
-        this.functions=functions;
+    public Product(Function function1, Function function2) {
+        this.function1=function1;
+        this.function2=function2;
     }
 
     @Override
     public double valueAt(double a) {
-        int len =functions.length;
-        double product=1;
-        for(int i=0;i<len;i++)
-            product*=functions[i].valueAt(a);
-        return product;
+        return function1.valueAt(a) * function2.valueAt(a);
 
     }
 
     @Override
     public String toString() {
-        int len = functions.length;
-        String str="(";
-        for (int i = 0; i < len-1; i++)
-            str+= functions[i] + "*";
-        str+=functions[len-1]+")";
-        return str;
+        return "(" + function1 + " * " + function2 + ")";
+
     }
 
 
 
     @Override
     public Function derivative() {
-        Function firstD=functions[0].derivative();
-        Function secondD=functions[1].derivative();
-        Product firstP=new Product(firstD,functions[1]);
-        Product secondP=new Product(functions[0],secondD);
+        Function firstD=function1.derivative();
+        Function secondD=function2.derivative();
+        Product firstP=new Product(firstD,function2);
+        Product secondP=new Product(secondD,function1);
         return new Sum(firstP,secondP);
     }
 }
+/*int len =functions.length;
+        double product=1;
+        for(int i=0;i<len;i++)
+            product*=functions[i].valueAt(a);
+        return product;*/
+
+/*    public String toString() {
+        int len = functions.length;
+        String str="(";
+        for (int i = 0; i < len-1; i++)
+            str+= functions[i] + "*";
+        str+=functions[len-1]+")";
+        return str;
+    }*/
